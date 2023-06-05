@@ -3,6 +3,7 @@ package org.model;
 public class Main {
 
     public static void main(String[] args) {
+
         Student student1 = new Student();
         student1.setName("Peter");
         student1.setAge(21);
@@ -20,6 +21,14 @@ public class Main {
 
         // Try out overwrited equals Method
         System.out.println("Are the instances equal?: " + student1.equals(student2));
+
+        Student[] students = new Student[]{
+            new Student("Sahed", 21, 1),
+            new Student("Canana", 22, 2),
+            new Student("Debby", 23, 3),
+        };
+
+        StudentDB studentDB = new StudentDB(students);
 
 
     }
