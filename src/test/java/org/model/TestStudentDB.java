@@ -6,7 +6,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class TestStudentDB {
 
@@ -66,8 +69,7 @@ class TestStudentDB {
     }
 
     @Test
-    void test_removeStudent(
-    ) {
+    void test_removeStudent() {
         Student[] students = new Student[]{
             new Student("Sahed", 21, 1),
             new Student("Canana", 22, 2),
@@ -77,6 +79,12 @@ class TestStudentDB {
 
         StudentDB studentDB = new StudentDB(students);
 
-        studentDB.removeStudent(students[3]);
+        Student studentToRemove = students[1];
+
+        studentDB.removeStudent(studentToRemove);
+
+        Student[] updatedStudents = studentDB.getStudents();
+
+        Assertions.assertFalse(Arrays.asList(updatedStudents).contains(studentToRemove), "Student should not be in the array after removal");
     }
 }
