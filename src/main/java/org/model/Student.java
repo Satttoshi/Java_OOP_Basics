@@ -7,14 +7,14 @@ public class Student {
 
     String name;
     int age;
-    int points;
+    int id;
 
     public Student(){};
 
-    public Student(String name, int age, int points) {
+    public Student(String name, int age, int id) {
         this.name = name;
         this.age = age;
-        this.points = points;
+        this.id = id;
     }
 
     String getName() {
@@ -34,18 +34,18 @@ public class Student {
     }
 
     int getPoints() {
-        return points;
+        return id;
     }
 
     void setPoints(int points) {
-        this.points = points;
+        this.id = points;
     }
 
 
     public String toString(){
         return "[Name: " + this.name
             + " age: " + this.age
-            + " points: " + this.points + " ]";
+            + " points: " + this.id + " ]";
     }
 
 
@@ -56,11 +56,11 @@ public class Student {
         if (o == null || getClass() != o.getClass())
             return false;
         Student student = (Student) o;
-        return age == student.age && points == student.points && Objects.equals(name, student.name);
+        return age == student.age && id == student.id && Objects.equals(name, student.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, points);
+        return Objects.hash(name, age, id);
     }
 }
