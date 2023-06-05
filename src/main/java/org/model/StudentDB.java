@@ -1,5 +1,6 @@
 package org.model;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class StudentDB {
@@ -12,6 +13,12 @@ public class StudentDB {
 
     public Student[] getStudents(){
         return students;
+    }
+
+    public void addStudent(Student student) {
+        Student[] newStudents = Arrays.copyOf(students, students.length + 1);
+        newStudents[newStudents.length - 1] = student;
+        students = newStudents; // overwrite old array, change address pointer
     }
 
     @Override
