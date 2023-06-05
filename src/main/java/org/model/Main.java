@@ -26,13 +26,19 @@ public class Main {
 
         Student[] students = new Student[]{
             new Student("Sahed", 21, 1),
-            new Student("Canana", 22, 2),
+            new Student("Canan", 22, 2),
             new Student("Debby", 23, 3),
         };
 
         StudentDB studentDB = new StudentDB(students);
 
+        // Print out the students array
+        System.out.println(Arrays.toString(studentDB.getStudents()));
+
+        // Print out the students array with overwrited toString Method
         System.out.println(studentDB);
+
+        System.out.println("Random student: " + studentDB.randomStudent());
 
     }
 }

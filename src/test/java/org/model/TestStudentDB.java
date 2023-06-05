@@ -31,6 +31,25 @@ class TestStudentDB {
             )
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("provideStudentData")
+    void test_toString(
+        Student[] students
+    ) {
+        String expected = "[Name: Sahed, age: 21, points: 1], [Name: Canana, age: 22, points: 2], [Name: Debby, age: 23, points: 3]";
+        StudentDB studentDB = new StudentDB(students);
+        String actual = studentDB.toString();
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideStudentData")
+    void test_randomStudent(
+        Student[] students
+    ) {
+        StudentDB studentDB = new StudentDB(students);
+        Student actual = studentDB.randomStudent();
+        Assertions.assertNotNull(actual);
+    }
 }
-
-

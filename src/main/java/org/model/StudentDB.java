@@ -1,5 +1,7 @@
 package org.model;
 
+import java.util.Random;
+
 public class StudentDB {
 
     private Student[] students;
@@ -12,6 +14,7 @@ public class StudentDB {
         return students;
     }
 
+    @Override
     public String toString(){
         StringBuilder result = new StringBuilder();
         for (Student student : students) {
@@ -21,5 +24,10 @@ public class StudentDB {
             }
         }
         return result.toString();
+    }
+
+    private final Random random = new Random();
+    public Student randomStudent(){
+        return students[random.nextInt(students.length)];
     }
 }
