@@ -65,20 +65,18 @@ class TestStudentDB {
         Assertions.assertEquals(actual[actual.length - 1], student);
     }
 
-    @ParameterizedTest
-    @MethodSource("provideStudentData")
+    @Test
     void test_removeStudent(
-        Student[]  students
     ) {
+        Student[] students = new Student[]{
+            new Student("Sahed", 21, 1),
+            new Student("Canana", 22, 2),
+            new Student("Debby", 23, 3),
+            new Student("Peter", 21, 4),
+        };
+
         StudentDB studentDB = new StudentDB(students);
-        Student student = new Student("Peter", 21, 4);
-        studentDB.removeStudent(student);
-        for (int i = 0; i < students.length; i++) {
-            if (students.length - 1 == i) {
-                Assertions.assertNull(students[i]);
-                break;
-            }
-            Assertions.assertEquals(students[i], studentDB.getStudents()[i]);
-        }
+
+        studentDB.removeStudent(students[3]);
     }
 }

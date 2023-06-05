@@ -43,5 +43,9 @@ public class Main {
         studentDB.addStudent(new Student("Peter", 21, 4));
         System.out.println(studentDB);
 
+        studentDB.removeStudent(students[2]);
+        System.out.println(studentDB);
+        System.out.println(studentDB.getStudents()[3]);
+
     }
 }
