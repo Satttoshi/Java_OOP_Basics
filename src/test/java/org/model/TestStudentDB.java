@@ -52,4 +52,33 @@ class TestStudentDB {
         Student actual = studentDB.randomStudent();
         Assertions.assertNotNull(actual);
     }
+
+    @ParameterizedTest
+    @MethodSource("provideStudentData")
+    void test_addStudent(
+        Student[] students
+    ) {
+        StudentDB studentDB = new StudentDB(students);
+        Student student = new Student("Peter", 21, 4);
+        studentDB.addStudent(student);
+        Student[] actual = studentDB.getStudents();
+        Assertions.assertEquals(actual[actual.length - 1], student);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideStudentData")
+    void test_removeStudent(
+        Student[]  students
+    ) {
+        StudentDB studentDB = new StudentDB(students);
+        Student student = new Student("Peter", 21, 4);
+        studentDB.removeStudent(student);
+        for (int i = 0; i < students.length; i++) {
+            if (students.length - 1 == i) {
+                Assertions.assertNull(students[i]);
+                break;
+            }
+            Assertions.assertEquals(students[i], studentDB.getStudents()[i]);
+        }
+    }
 }

@@ -32,13 +32,16 @@ public class Main {
 
         StudentDB studentDB = new StudentDB(students);
 
-        // Print out the students array
+        // Print out the students array get Students (Make visible in terminal)
         System.out.println(Arrays.toString(studentDB.getStudents()));
 
         // Print out the students array with overwrited toString Method
         System.out.println(studentDB);
 
         System.out.println("Random student: " + studentDB.randomStudent());
+
+        studentDB.addStudent(new Student("Peter", 21, 4));
+        System.out.println(studentDB);
 
     }
 }
