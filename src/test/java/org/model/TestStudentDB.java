@@ -7,35 +7,27 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class TestStudentDB {
+class TestStudentDB {
 
     @ParameterizedTest
     @MethodSource("provideStudentData")
     void test_getAllStudents(
-        Student[] student1,
-        Student[] expected
+        Student[] students
     ) {
-        boolean actual = student1.equals(student2);
+        Student[] actual = new StudentDB(students).getStudents();
 
-        Assertions.assertEquals(actual, expected);
+        Assertions.assertEquals(actual, students);
     }
 
+    static Student[] students = new Student[]{
+        new Student("Sahed", 21, 1),
+        new Student("Canana", 22, 2),
+        new Student("Debby", 23, 3),
+    };
     static Stream<Arguments> provideStudentData() {
         return Stream.of(
             Arguments.of(
-                new Student("Peter", 21, 69),
-                new Student("Peter", 21, 69),
-                true
-            ),
-            Arguments.of(
-                new Student("Peter", 21, 69),
-                new Student("Peter", 21, 70),
-                false
-            ),
-            Arguments.of(
-                new Student("Peter", 21, 69),
-                new Student("Peter", 22, 69),
-                false
+                (Object) students
             )
         );
     }

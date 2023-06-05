@@ -1,5 +1,7 @@
 package org.model;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -30,6 +32,7 @@ public class Main {
 
         StudentDB studentDB = new StudentDB(students);
 
+        System.out.println(studentDB);
 
     }
 }

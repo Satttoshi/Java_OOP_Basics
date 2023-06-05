@@ -44,8 +44,8 @@ public class Student {
 
     public String toString(){
         return "[Name: " + this.name
-            + " age: " + this.age
-            + " points: " + this.id + " ]";
+            + ", age: " + this.age
+            + ", points: " + this.id + "]";
     }
 
 
