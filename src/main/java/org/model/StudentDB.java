@@ -43,9 +43,6 @@ public class StudentDB {
         }
     }
 
-    public int getLength() {
-        return students.length;
-    }
 
     @Override
     public String toString(){
