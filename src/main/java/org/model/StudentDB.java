@@ -22,7 +22,6 @@ public class StudentDB {
         students.remove(student);
     }
 
-
     @Override
     public String toString(){
         StringBuilder result = new StringBuilder();
